@@ -1,4 +1,4 @@
-// /* eslint-disable */
+/* eslint-disable */
 // const name = 'wes';
 // const middle = "topher";
 // const last = `bos`;
@@ -55,6 +55,7 @@ const person = {
 };
 */
 
+/*
 let dog;
 console.log(dog); // this will show up as undefined in the console
 
@@ -72,3 +73,17 @@ const teller = {
 
 teller.first = 'Teller';
 teller.last = null; // legally changed last name to nothing.
+*/
+
+// booleans are true or false. uesd for if statements.
+let isDrawing = false;
+
+let age = 18;
+const ofAge = age > 19;
+console.log(ofAge);
+
+age = 100;
+age2 = 100;
+// === checks the value and the type to see if they're both equal.
+
+
