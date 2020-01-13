@@ -86,4 +86,7 @@ age = 100;
 age2 = 100;
 // === checks the value and the type to see if they're both equal.
 
+/* parseFloat(); this takes in a string, and will return a number.
+parseInt(); takes in a string, and returns a whole number */
+/* Math.round(), Math.round(), Math.ceil(); Date.now() - returns current date in miliseconds. */
 
