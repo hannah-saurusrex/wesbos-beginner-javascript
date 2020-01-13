@@ -1,31 +1,17 @@
-// Function Definition
-function calculateBill(billAmount, taxRate = 0.13, tipRate = 0.15) {
-  // this is the function body
-  console.log('Running Calculate Bill!!');
-  const total = billAmount + billAmount * taxRate + billAmount * tipRate;
-  return total;
+/* calculate a bill at a restaurant */
+
+/* functions are created/defined, and then they're called */
+
+// this is function definition
+function calculateBill() {
+  // this is the function body. anything inside body will be part of the funciton
+  console.log('running, calculate Bill!');
+  const total = 100 * 1.13;
+  return total; // this is a temporary variable, because it is only accessable inside of this function.
 }
 
-// Function Call. Or **Run**
-const wesTotal = 500;
-const wesTaxRate = 0.3;
-// const myTotal = calculateBill(wesTotal, wesTaxRate);
+// this is a function call, or a *run* of the function
+const myTotal = calculateBill();
+// console.log(`Your total is $${myTotal}`);
 
-// Function Definition
-function sayHiTo(firstName) {
-  return `Hello ${firstName}`;
-}
-
-// const greeting = sayHiTo('Wes');
-// console.log(greeting);
-
-function doctorize(name) {
-  return `Dr. ${name}`;
-}
-
-function yell(name = 'Silly Goose') {
-  return `HEY ${name.toUpperCase()}`;
-}
-
-const myBill4 = calculateBill(100, undefined, 0.2);
-console.log(myBill4);
+console.log(`Your total is $${calculateBill()}`);
