@@ -3,12 +3,11 @@
 /* functions are created/defined, and then they're called */
 
 // this is function definition
-function calculateBill(billAmount, taxRate = 0.13) {
+function calculateBill(billAmount, taxRate = 0.13, tipRate = 0.15) {
   // billAmount and taxRate are parameters (placeholders). you will use them when you run the function.
-  console.log(billAmount, taxRate);
   // this is the function body. anything inside body will be part of the funciton
   console.log('running, calculate Bill!');
-  const total = billAmount * (1 + taxRate);
+  const total = billAmount + billAmount * taxRate + billAmount * taxRate;
   return total; // this is a temporary variable, because it is only accessable inside of this function.
 }
 
@@ -37,3 +36,6 @@ function yell(name = 'Silly Goose') {
 }
 
 // yell(doctorize('Hannah'));
+
+const myBill4 = calculateBill(100, undefined, 0.2);
+console.log(myBill4);
