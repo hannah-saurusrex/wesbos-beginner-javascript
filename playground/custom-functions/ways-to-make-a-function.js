@@ -82,4 +82,19 @@ const hannah = {
   }
 }
 
+// callback functions
+// click callback
+const button = document.querySelector('.clickMe');
 
+function handleClick() {
+  console.log('Great Clicking!');
+}
+
+button.addEventListener('click', function() {
+  console.log('Nice Job!');
+}); // callback...meaning a function that we give it access to, i.e. the hannah yellHi function!
+
+// Timer callback
+setTimeout(function() {
+  console.log('Done! time for a drink!')
+}, 1000);
