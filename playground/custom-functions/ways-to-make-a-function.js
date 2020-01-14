@@ -55,3 +55,31 @@ const inchToCM = (inches) => inches * 2.54; // this is an orrow function
 /* let's take the arrow function a bit further and feel super fancy */
 const makeABaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
 /* this one is a bit complicated and tricky to understand. maybe we went too far...? (think about your future self!) */
+
+// IIFE
+// immediately invoked function expression
+// throw parentheses around the whole expression, then add another set at the end, to immediately run it ();
+
+// (function(age) {
+//   return `you are cool and age ${age}`;
+// })(10);
+
+// METHODS!!! A method is a function that lives inside of an object
+const hannah = {
+  name: 'Hannah McMahon',
+  // method
+  sayHi: function() {
+    console.log('Hey Hannah');
+    return 'Hey Hannah';
+  },
+  // short-hand method
+  yellHi() {
+    console.log('HEY HAAANNNNNNAAAAAHHH');
+  },
+  // arrow function
+  whisperHi: () => {
+    console.log('hii hannah im a mouse');
+  }
+}
+
+
