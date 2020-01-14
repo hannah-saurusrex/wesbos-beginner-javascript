@@ -6,32 +6,30 @@ const people = [
 
 people.forEach((person, index) => {
   console.log(person.name);
-  if (person.name === 'Wes') {
-    console.warn('dumb name');
-  }
 });
 
-console.table(people);
-
 // Console Methods
-console.log();
-console.error();
-console.warn();
-console.table();
-console.count();
-console.group();
+// console.log();
+// console.error();
+// console.warn();
+// console.table();
+// console.count();
+// console.group();
 
 // Callstack
 
 // Grabbing Elements
+// select element in elements tab. switch to console tab and type $0 and it will show you the last element you selected.
 
 // Breakpoints
+/* add debugger; into your function to use the 'sources' tab in devtools. */
 
 // Scope
 
 // Network Requests
 
 // Break On Attribute
+// in sources, can add a breakpoint, for example on a click event. it will add the 'debugger' feature.
 
 // Some Setup Code
 
@@ -49,7 +47,7 @@ function doctorize(name) {
 }
 
 function greet(name) {
-  doesntExist();
+  doesntExist(); // this will cause an error
   return `Hello ${name}`;
 }
 
