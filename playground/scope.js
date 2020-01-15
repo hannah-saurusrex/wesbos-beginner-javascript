@@ -31,7 +31,14 @@ function logDog() {
 
 function go() {
   const dog = 'sunny';
-  logDog();
+  logDog('rufus');
 }
 
 go();
+
+function sayHi(name) {
+  function yell() {
+    console.log(name.toUpperCase());
+  }
+  yell();
+}
