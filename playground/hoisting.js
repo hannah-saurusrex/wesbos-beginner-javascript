@@ -1,15 +1,13 @@
-/* esline-disable */
-let age;
-console.log(age);
-age = 10;
+// function declarations and variable declarations are 'hoisted'
+// bascially if you declare a function before you write it, your document will automatically arrange the elments on the page so that it understands what you're saying
 
-/* What does this file do? */
 sayHi();
 
-/* How does this file do it? */
 function sayHi() {
-  console.log('hey!');
+  console.log('hey');
   console.log(add(10, 2));
 }
 
-const add = (a, b) => a + b;
+function add(a, b) {
+  return a + b;
+}
