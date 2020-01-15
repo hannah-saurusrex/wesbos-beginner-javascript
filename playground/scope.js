@@ -2,49 +2,36 @@
 
 // function go() {
 //   const myAge = 200;
-//   const hair = 'blonde';
-//   console.log(age);
+//   const hair = 'blonde'; // this variable was declared inside of a function, so it is only available inside said function, not available globally.
+//   console.log(age); // will look inside the function for age first; if not found, will look outside function.
 //   console.log(myAge);
 //   console.log(hair);
 // }
 
 // go();
-/* eslint-disable*/
 
 // function isCool(name) {
+//   let cool;
 //   if (name === 'wes') {
-//     var cool = true;
+//     cool = true;
 //   }
-//   console.log(cool);
+//   console.log(cool); // if cool undefined, because it's inside the function.
 //   return cool;
 // }
 
-// for(let i = 0; i < 10; i++) {
+// for (let i = 0; i < 10; i++) {
 //   console.log(i);
 // }
 
-
 const dog = 'snickers';
 
-function logDog(dog) {
+function logDog() {
   console.log(dog);
 }
 
 function go() {
   const dog = 'sunny';
-  logDog('sunny');
+  logDog();
 }
 
 go();
-
-function yell() {
-  console.log(name.toUpperCase())
-}
-
-function sayHi(name) {
-
-  yell();
-}
-
-
-yell();
