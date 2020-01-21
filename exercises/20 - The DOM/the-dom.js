@@ -33,3 +33,21 @@ function toggleRound() {
 }
 
 pic.addEventListener('click', toggleRound);
+
+pic.alt = 'this is alt text for the image on the screen';
+console.log(pic.naturalWidth); // wont work because browser has to wait until the image has downloaded.
+pic.width = 200; // sets width of the pic variable
+// pic.addEventListener('load', function() {
+//   console.log(pic.naturalWidth);
+// });
+
+// pic.setAttribute('alt', 'really cute pup');
+// console.log(pic.getAttribute('alt'));
+// very rare to use set & get attribute
+
+const custom = document.querySelector('.custom');
+console.log(custom.dataset);
+
+custom.addEventListener('click', function() {
+  alert(`welcome ${custom.dataset.name} ${custom.dataset.last}`);
+});
