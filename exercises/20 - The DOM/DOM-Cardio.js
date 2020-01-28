@@ -6,10 +6,15 @@ div.classList.add('wrapper');
 document.body.appendChild(div);
 
 // make an unordered list
-
+const ul = `<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>`;
 // add three list items with the words "one, two three" in them
 // put that list into the above wrapper
-
+div.innerHTML = ul;
+console.log(div);
 // create an image
 
 // set the source to an image
