@@ -12,3 +12,5 @@ coolButton.addEventListener('click', handleClick);
 // 1. go get something "butts".
 // 2. listen for something "click"
 // 3. go ahead and do something. console.log it worked. or maybe you toggle on a style class.
+
+butts.removeEventListener('click', handleClick);
