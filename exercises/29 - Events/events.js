@@ -23,3 +23,15 @@ butts.removeEventListener('click', handleClick);
 // binding -- handleClick function is bound to the butts element.
 // handleClick is also bound to the coolButton element.
 // in the removeEventLIstener, handleClick is unbound from the butts element.
+
+// listen on multiple items
+const buyButtons = document.querySelectorAll('button.buy');
+
+function buyItem() {
+  console.log('buying item');
+}
+
+buyButtons.forEach(function(buyButton) {
+  console.log('binding the buy button');
+  buyButton.addEventListener('click', buyItem);
+});
