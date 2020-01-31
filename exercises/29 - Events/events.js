@@ -57,7 +57,16 @@ window.addEventListener(
   function(event) {
     console.log('you clicked the window');
     console.log(event.target);
-    event.stopPropagation();
+    console.log(event.type);
+    console.log(event.bubbles);
+    // event.stopPropagation();
   },
   { capture: true }
 );
+
+const photoEl = document.querySelector('.photo');
+
+photoEl.addEventListener('mouseenter', function(e) {
+  console.log(e.currentTarget);
+  console.log(this); // this keyword equal to whatever is left of the eventListener "."; in this example, it's photoEl
+});
