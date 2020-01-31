@@ -38,18 +38,20 @@ const buyButtons = document.querySelectorAll('button.buy');
 
 function handleBuyButtonCLick(event) {
   const button = event.target;
-
   // console.log(button.textContent);
   // console.log(parseFloat(event.target.dataset.price)); // gets price from dataset of button you clicked
   console.log(event.target);
   console.log(event.currentTarget); // should probably use this one more often
   console.log(event.target === event.currentTarget);
+  // stop this event from bubbling up
+  event.stopPropagation();
 }
 
 buyButtons.forEach(function(buyButton) {
   buyButton.addEventListener('click', handleBuyButtonCLick);
 });
 
-window.addEventListener('click', function() {
+window.addEventListener('click', function(event) {
   console.log('you clicked the window');
+  console.log(event.target);
 });
