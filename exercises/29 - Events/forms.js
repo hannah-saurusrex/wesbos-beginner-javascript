@@ -24,3 +24,14 @@ signupForm.addEventListener('submit', function(event) {
   //   console.log(event.currentTarget.email.value);
   //   console.log(event.currentTarget.agree.checked);
 });
+
+function logEvent(event) {
+  console.log(event.type);
+  console.log(event.currentTarget.value);
+}
+signupForm.name.addEventListener('keyup', logEvent);
+
+// ('keyup');
+// ('keydown');
+// ('focus');
+// ('blur');
