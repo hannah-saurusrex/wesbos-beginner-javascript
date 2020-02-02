@@ -30,8 +30,20 @@ function logEvent(event) {
   console.log(event.currentTarget.value);
 }
 signupForm.name.addEventListener('keyup', logEvent);
+signupForm.name.addEventListener('keydown', logEvent);
+signupForm.name.addEventListener('focus', logEvent);
+signupForm.name.addEventListener('blur', logEvent);
 
 // ('keyup');
 // ('keydown');
 // ('focus');
 // ('blur');
+
+// for accessability, don't mix up buttons and links!
+
+// this click event won't work with keyboard shortcuts.
+const photo = document.querySelector('.photo');
+
+photo.addEventListener('click', function() {
+  console.log('you clicked the photo');
+});
