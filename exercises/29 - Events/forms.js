@@ -14,9 +14,13 @@ wes.addEventListener('click', function(event) {
 const signupForm = document.querySelector('[name="signup"]');
 
 signupForm.addEventListener('submit', function(event) {
-  event.preventDefault();
+  const name = event.currentTarget.name.value;
+  if (name.includes('chad')) {
+    alert('sorry bro');
+    event.preventDefault();
+  }
   //   event.currentTarget.querySelector('[name="email"'); this is unnecessary if your forms are written properly
-  console.log(event.currentTarget.name.value);
-  console.log(event.currentTarget.email.value);
-  console.log(event.currentTarget.agree.checked);
+  //   console.log(event.currentTarget.name.value);
+  //   console.log(event.currentTarget.email.value);
+  //   console.log(event.currentTarget.agree.checked);
 });
