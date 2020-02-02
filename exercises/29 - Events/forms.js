@@ -44,6 +44,9 @@ signupForm.name.addEventListener('blur', logEvent);
 // this click event won't work with keyboard shortcuts.
 const photo = document.querySelector('.photo');
 
-photo.addEventListener('click', function() {
-  console.log('you clicked the photo');
-});
+function handlePhotoClick() {
+  console.log('you clicked hte photo');
+}
+
+photo.addEventListener('click', handlePhotoClick);
+photo.addEventListener('keyup', handlePhotoClick);
