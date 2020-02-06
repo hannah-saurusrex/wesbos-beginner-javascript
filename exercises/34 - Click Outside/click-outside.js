@@ -21,3 +21,14 @@ function handleCardButtonClick(event) {
 cardButtons.forEach(button =>
   button.addEventListener('click', handleCardButtonClick)
 );
+
+function closeModal() {
+  modalOuter.classList.remove('open');
+}
+
+modalOuter.addEventListener('click', function(event) {
+  const isOutside = !event.target.closest('.modal-inner');
+  if (isOutside) {
+    modalOuter.classList.remove('open');
+  }
+});
