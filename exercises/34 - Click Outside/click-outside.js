@@ -7,12 +7,14 @@ function handleCardButtonClick(event) {
   const card = button.closest('.card');
   // grab the image source
   const imgSrc = card.querySelector('img').src;
-  console.log(imgSrc);
   const desc = card.dataset.description;
   const name = card.querySelector('h2').textContent;
   // populate the modal with the new info
   modalInner.innerHTML = `
-  <img src="${imgSrc.replace('200', '600')}" alt="${name}"/>
+  <img width="600" height="600" src="${imgSrc.replace(
+    '200',
+    '600'
+  )}" alt="${name}"/>
   <p>${desc}</p>`;
   // show the modal
   modalOuter.classList.add('open');
