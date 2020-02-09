@@ -31,6 +31,26 @@
 				}
 				return slug;
 			}
+
+			const name = "wes";
+			const last = "bos";
+
+			if (name === "scott" || (name === "wes" && last === "bos")) {
+				console.log("cooool name");
+			}
+
+			const isAwesomeName = "awesome".includes(name);
+			if (isAwesomeName) {
+				console.log("super cool awesome name");
+			}
+
+			function nameIsAwesome(name) {
+				return "awesome".includes(name);
+			}
+
+			if (nameIsAwesome("wes")) {
+				console.log("COOL NAME WES");
+			}
 		</script>
 	</body>
 </html>
