@@ -8,9 +8,14 @@
 	</head>
 
 	<body>
-		* empty array * empty object * 1 * -10 * full string * a string of "0" * 0 *
-		undefined variable * Variable set to null * a variable set to `"hello" - 10`
-		NaN * empty string
+		* empty array * empty object
+
+		<h2>Truthy Values</h2>
+		* 1 * -10 * full string * a string of "0"
+
+		<h2>Falsy Values</h2>
+		* 0 * undefined variable * Variable set to null * a variable set to `"hello"
+		- 10` NaN * empty string
 
 		<script>
 			// const age = 50;
@@ -50,6 +55,22 @@
 
 			if (nameIsAwesome("wes")) {
 				console.log("COOL NAME WES");
+			}
+
+			const dog = "";
+
+			if (dog) {
+				console.log("you have a dog");
+			} else {
+				console.log("you dont have a dog");
+			}
+
+			const score = {};
+
+			if (score) {
+				console.log("there is a score already");
+			} else {
+				console.log("no score yet");
 			}
 		</script>
 	</body>
