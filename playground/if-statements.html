@@ -153,6 +153,11 @@
 			}
 			// isAdmin ? showAdminBar() : null;
 			isAdmin && showAdminBar();
+
+			if (isAdmin) showAdminBar(); // this is technically legal, but hard to read/understand.
+			if (isAdmin) {
+				showAdminBar();
+			}
 		</script>
 	</body>
 </html>
