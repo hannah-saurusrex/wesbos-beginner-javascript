@@ -12,9 +12,9 @@
 			function buzzer() {
 				console.log("eeennngggggg");
 			}
-			setTimeout(buzzer, 500); // takes a callback, and miliseconds to wait until it runs
+			// setTimeout(buzzer, 500); // takes a callback, and miliseconds to wait until it runs
 
-			setInterval(buzzer, 2000); // takes a callback, and will run every 100 milisecond
+			// setInterval(buzzer, 2000); // takes a callback, and will run every 100 milisecond
 
 			function setImmediateInterval(funcToRun, ms) {
 				// right away, call that function
@@ -24,6 +24,29 @@
 			}
 
 			setImmediateInterval(buzzer, 2000);
+
+			function destroy() {
+				document.body.innerHTML = `<p>DESTROYED</p>`;
+			}
+
+			const bombTimer = setTimeout(destroy, 5000);
+
+			console.log(bombTimer);
+
+			window.addEventListener("click", function() {
+				console.log("you clicked, you saved the world!");
+				// how do i stop the timer from running?
+				clearTimeout(bombTimer); // stop the timer from running
+			});
+
+			const poopInterval = setInterval(function() {
+				console.log("emoji here");
+				console.log("uh oh");
+			}, 10);
+
+			setTimeout(function() {
+				clearInterval(poopInterval);
+			}, 3000);
 		</script>
 	</body>
 </html>
