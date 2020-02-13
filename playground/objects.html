@@ -23,12 +23,30 @@
 				clothing: {
 					shirts: 10,
 					pants: 2
+				},
+				sayHello(greeting = "Hello") {
+					return `${greeting} ${this.name}`;
 				}
 			};
 
 			person.job = "Web Developer";
 			person.age = 50;
-			console.log(person);
+
+			// const wesFroze = Object.freeze(wes); // freeze an object so that no values can change
+			console.log(person.age);
+			// console.log(person['age']); does the same thing as above.
+
+			const nameInput = document.querySelector('[name="first"]');
+			// const name = nameInput.value;
+			// console.log(name);
+			if (nameInput) {
+				const name = nameInput ? nameInput.value : "";
+				console.log(name);
+			}
+
+			console.log(delete person.job);
+
+			// methods is a function that lives inside of an object
 		</script>
 	</body>
 </html>
