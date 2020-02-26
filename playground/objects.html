@@ -82,6 +82,34 @@
 			person3.clothing.shirts = 100; // this changes shirts for BOTH person1 & person3.
 			// spread operator takes shallow copies, meaning it'll only go one level deep. If you put an object inside an object, i.e. clothing,
 			// it won't remain distinct. clothing will change in person1 & person3.
+
+			const meatInventory = {
+				bacon: 2,
+				sausage: 3
+			};
+
+			const veggieInventory = {
+				lettuce: 5,
+				tomatoes: 3
+			};
+			// merge objects
+			const inventory = {
+				...meatInventory,
+				...veggieInventory,
+				oysters: 10
+			};
+
+			function doStuff(data) {
+				data = "something else";
+				console.log(data);
+			}
+
+			function doStuff2(data) {
+				data.tomatoes = "100000";
+				console.log(data);
+			}
+
+			doStuff2(inventory); // this also changes our inventory object by adding tomatoes.
 		</script>
 	</body>
 </html>
