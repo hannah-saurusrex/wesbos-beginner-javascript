@@ -47,9 +47,41 @@
 				console.log(name);
 			}
 
-			console.log(delete person.job);
+			// console.log(delete person.job);
 
 			// methods is a function that lives inside of an object
+			let name1 = "wes";
+			const name2 = "wes";
+
+			console.log(name1 === name2);
+			name1 = "scott";
+			console.log(name1 === name2);
+			name1 = name2;
+			console.log(name1 === name2);
+
+			const person1 = {
+				first: "wes",
+				last: "bos",
+				clothing: {
+					shirts: 10,
+					pants: 2
+				}
+			};
+			const person2 = {
+				first: "wes",
+				last: "bos"
+			};
+
+			// const person3 = person1;
+			// person3.first = "Laura";
+			// console.log(person1.first);
+			const person3 = { ...person1 }; // use spread operator to take a copy of an object
+			// const person3 = Object.assign([], person1); // older way to do same thing, before spread operator
+			person3.first = "Larry";
+
+			person3.clothing.shirts = 100; // this changes shirts for BOTH person1 & person3.
+			// spread operator takes shallow copies, meaning it'll only go one level deep. If you put an object inside an object, i.e. clothing,
+			// it won't remain distinct. clothing will change in person1 & person3.
 		</script>
 	</body>
 </html>
