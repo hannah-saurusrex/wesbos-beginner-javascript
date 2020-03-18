@@ -168,17 +168,28 @@
 			// const findBurgRating = (singleFeedback) =>
 			// 	singleFeedback.comment.includes("burg");
 
-			const util = {
-				findBurgRating(singleFeedback) {
-					return singleFeedback.comment.includes("burg");
-				}
-			};
+			// option 5:
+			// const util = {
+			// 	findBurgRating(singleFeedback) {
+			// 		return singleFeedback.comment.includes("burg");
+			// 	}
+			// };
+
+			// const findSmoothieRating = (singleFeedback) =>
+			// 	singleFeedback.comment.includes("smoothie");
+
+			function findByWord(word) {
+				return function(singleFeedback) {
+					return singleFeedback.comment.includes(word);
+				};
+			}
 
 			// 	console.log(singleFeedback);
 			// 	return true; // will stop once it has found the first thing that matches parameters. will not continue to display other results that match.
 			// }
 
-			const burgRating = feedback.find(findBurgRating);
+			const burgRating = feedback.find(findByWord("burg"));
+			const smoothieRating = feedback.find(findByWord("smoothie"));
 			console.log(burgRating);
 
 			// find all ratings that are above 2 with filter()
