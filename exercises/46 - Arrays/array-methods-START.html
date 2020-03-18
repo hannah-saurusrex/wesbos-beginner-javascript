@@ -227,13 +227,28 @@
 
 			// sort the toppings alphabetically with sort()
 			const numbers = [1, 2, 100, 200, 255, 6, 3, 250, 300];
-			const numbersSorted = numbers.sort(function(firstItem, secondItem) {
-				return firstItem - secondItem;
-			});
+			const numbersSorted = numbers.sort((firstItem, secondItem) => firstItem - secondItem);
 			console.log(numbersSorted);
+			console.log(toppings.sort());
 
 			// sort the order totals from most expensive to least with .sort()
+			// // wrote the following based on previous challenge:
+			// const sorted = orderTotals.sort((firstItem, secondItem) => firstItem - secondItem);
+			// console.log(sorted);
+			// now we'll write it using a function:
+			function numberSort(a,b) {
+				return a - b;
+			}
+			console.log(orderTotals.sort(numberSort));
+
 			// Sort the prices with sort()
+			// this one is tricky, because the prices are in an object, and we need each key to stay with the price
+			const productsSortedByPrice = Object.entries(prices).sort(function(a,b) {
+				const aPrice = a[1];
+				const bPrice = b[1];
+				return aPrice - bPrice;
+			});
+			console.table(Object.fromEntries(productsSortedByPrice));
 
 			/*
 			   Looping Methods (next)
