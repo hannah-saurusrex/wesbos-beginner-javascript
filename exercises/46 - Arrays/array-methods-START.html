@@ -49,8 +49,8 @@
 			];
 
 			/*
-      Static Methods
-    */
+			   Static Methods
+			 */
 
 			// Array.of();
 
@@ -89,8 +89,8 @@
 				console.log(key, value);
 			});
 			/*
-      Instance Methods
-    */
+			   Instance Methods
+			 */
 
 			// Display all bun types with " or " - use join()
 			console.log(buns.join(" or "));
@@ -145,10 +145,42 @@
 			console.log(toppingsReversed);
 
 			/*
-      Callback Methods
-    */
+			   Callback Methods
+			 */
 
 			// find the first rating that talks about a burger with find()
+			// option 1:
+			// function findBurgRating(singleFeedback) {
+			// 	return singleFeedback.comment.includes("burg");
+			// }
+
+			// // option 2:
+			// const findBurgRating = function(singleFeedback) {
+			// 	return singleFeedback.comment.includes("burg");
+			// };
+
+			// // option 3:
+			// const findBurgRating = (singleFeedback) => {
+			// 	return singleFeedback.comment.includes("burg");
+			// };
+
+			// // option 4:
+			// const findBurgRating = (singleFeedback) =>
+			// 	singleFeedback.comment.includes("burg");
+
+			const util = {
+				findBurgRating(singleFeedback) {
+					return singleFeedback.comment.includes("burg");
+				}
+			};
+
+			// 	console.log(singleFeedback);
+			// 	return true; // will stop once it has found the first thing that matches parameters. will not continue to display other results that match.
+			// }
+
+			const burgRating = feedback.find(findBurgRating);
+			console.log(burgRating);
+
 			// find all ratings that are above 2 with filter()
 			// find all ratings that talk about a burger with filter()
 			// Remove the one star rating however you like!
@@ -160,8 +192,8 @@
 			// Sort the prices with sort()
 
 			/*
-      Looping Methods (next)
-    */
+			   Looping Methods (next)
+			 */
 		</script>
 	</body>
 </html>
