@@ -192,6 +192,7 @@
 
     console.clear();
 
+    // filter will return an array of objects that match the criteria you're searching for.
     // more often than not, you'll have an array of objects that are returned from an API....let's practice
     const cleanPeople = people.map(function(person) {
       // get their birthday
@@ -211,6 +212,15 @@
     console.table(cleanPeople);;
     const over40 = cleanPeople.filter((person) => person.age > 40);
     console.table(over40);
+
+    console.clear();
+
+    // find will return one thing you're searching for, and only the first item that matches.
+    // using .find() will return an object with one item. Whereas .filter() returns an array of objects.
+    // use .find() to find the student with the id of 565a.
+
+    const student = students.find(stud => stud.id === '565a');
+    console.log(student);
 
   </script>
 </body>
