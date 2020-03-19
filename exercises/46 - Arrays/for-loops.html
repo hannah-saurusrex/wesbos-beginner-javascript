@@ -14,6 +14,12 @@
 
     const name = 'Wes Bos👪 💩 🐩 🍑';
 
+    const hannah = {
+      name: 'Hannah',
+      age: 100,
+      cool: true,
+    }
+
     // For
     for(let i = 100; i <= 120; i += 2) {
       console.log(i);
@@ -25,9 +31,29 @@
       console.log(letter);
     }
 
-    // For in
+    for (const number of numbers) {
+      console.log(number);
+    }
 
-    // While
+    // For in -- used for looping over keys in an object.
+    for (const prop in hannah) {
+      console.log(prop);
+    }
+
+    // While Loop; takes a condition and run infinitely until the condition is false.
+    let cool = true;
+    let i = 0;
+    while(cool === true) {
+      console.log('You are cool');
+      i++;
+      if(i > 100) {
+        cool = false;
+      }
+    }
+    // Do While Loop (no examples b/c Wes has never needed to use in his career ✌️)
+    do {
+
+    } while();
 
   </script>
 </body>
