@@ -128,6 +128,31 @@
     /*
       Looping Methods
     */
+    function logTopping(topping, index, originalArray) {
+      const nextTopping = originalArray[index + 1];
+      const prevTopping = originalArray[index - 1];
+      // log the topping
+      console.log(topping);
+      // log the prev topping if exists
+      prevTopping ? console.log(prevTopping) : null;
+      // log next topping if exists
+      nextTopping ? console.log(nextTopping) : null;  // ternary operator style baby
+      // if(nextTopping) {
+      //   console.log(nextTopping);
+      // }
+      // if last item in array, say goodbye
+      index === originalArray.length - 1 
+        ? console.log('GOODBYE 👋🏻') 
+        : console.log("hang in there, we're generating the next topping...");
+
+        // index === originalArray.length && console.log('Goodbye!');
+      console.log('---------🍕---------');
+    }
+    toppings.forEach(logTopping);
+
+    // toppings.forEach(topping => {
+    //   console.log(topping);
+    // });
 
   </script>
 </body>
