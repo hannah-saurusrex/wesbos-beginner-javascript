@@ -46,3 +46,8 @@ function transformText(text) {
 
 
 textarea.addEventListener('input', e => transformText(e.target.value));
+
+// loop over the inputs; each input an input event. when checked, pass it the transform text function, that passes it the value in the text area.
+filterInputs.forEach(input => input.addEventListener('input', () => {
+    transformText(textarea.value);
+}));
