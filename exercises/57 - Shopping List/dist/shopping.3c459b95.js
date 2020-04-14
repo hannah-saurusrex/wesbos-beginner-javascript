@@ -118,6 +118,18 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"shopping.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var shoppingForm = document.querySelector('.shopping');
 var list = document.querySelector('.list'); // we need an array to hold our state
 
@@ -135,26 +147,46 @@ function handleSubmit(e) {
     complete: false
   }; // add the value to our state
 
-  items.push(item);
-  console.log("There are now ".concat(items.length, " in your state")); // clear out anything left in the form input
+  items.push(item); // clear out anything left in the form input
   //   e.currentTarget.item.value = '';
 
   e.currentTarget.reset(); // fire off a custom event to tell anyone that cares that the items have been updated
 
-  list.dispatchEvent(new CustomEvent('itemsUpdated'));
+  list.dispatchEvent(new CustomEvent('itemsUpdated')); // running this dispatchEvent and creating a new custom event helps keep concerns seperate
 }
 
 function displayItems() {
-  console.log(items);
   var html = items.map(function (item) {
     return "<li class=\"shopping-item\">\n      <input type=\"checkbox\">\n      <span class=\"itemName\">".concat(item.name, "</span>\n      <button aria-label=\"Remove ").concat(item.name, "\">&times;</button>\n    </li>");
   }).join('');
-  console.log(html);
   list.innerHTML = html;
+} // save items into local storage
+
+
+function mirrorToLocalStorage() {
+  console.info('saving items to local storage');
+  localStorage.setItem('items', JSON.stringify(items));
+} // when page is refreshed/reloaded, local storage items are pulled out and shown
+
+
+function restoreFromLocalStorage() {
+  console.info('restoring from local storage'); // pull items from local storage
+
+  var lsItems = JSON.parse(localStorage.getItem('items'));
+
+  if (lsItems.length) {
+    // lsItems.length checks to see if there are any items at all..if so...
+    items.push.apply(items, _toConsumableArray(lsItems)); // if any exist, spread them into our items array.
+
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
+  }
 }
 
 shoppingForm.addEventListener('submit', handleSubmit);
 list.addEventListener('itemsUpdated', displayItems); // listen for itemsUpdated, and then run displayItems 🎉
+
+list.addEventListener('itemsUpdated', mirrorToLocalStorage);
+restoreFromLocalStorage();
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

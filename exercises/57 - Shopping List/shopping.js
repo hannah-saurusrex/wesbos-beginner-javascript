@@ -18,16 +18,14 @@ function handleSubmit(e) {
   };
   // add the value to our state
   items.push(item);
-  console.log(`There are now ${items.length} in your state`);
   // clear out anything left in the form input
   //   e.currentTarget.item.value = '';
   e.currentTarget.reset();
   // fire off a custom event to tell anyone that cares that the items have been updated
-  list.dispatchEvent(new CustomEvent('itemsUpdated'));
+  list.dispatchEvent(new CustomEvent('itemsUpdated')); // running this dispatchEvent and creating a new custom event helps keep concerns seperate
 }
 
 function displayItems() {
-  console.log(items);
   const html = items
     .map(
       item => `<li class="shopping-item">
@@ -37,9 +35,29 @@ function displayItems() {
     </li>`
     )
     .join('');
-  console.log(html);
   list.innerHTML = html;
+}
+
+// save items into local storage
+function mirrorToLocalStorage() {
+  console.info('saving items to local storage');
+  localStorage.setItem('items', JSON.stringify(items));
+}
+
+// when page is refreshed/reloaded, local storage items are pulled out and shown
+function restoreFromLocalStorage() {
+  console.info('restoring from local storage');
+  // pull items from local storage
+  const lsItems = JSON.parse(localStorage.getItem('items'));
+  if (lsItems.length) {
+    // lsItems.length checks to see if there are any items at all..if so...
+    items.push(...lsItems); // if any exist, spread them into our items array.
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
+  }
 }
 
 shoppingForm.addEventListener('submit', handleSubmit);
 list.addEventListener('itemsUpdated', displayItems); // listen for itemsUpdated, and then run displayItems 🎉
+list.addEventListener('itemsUpdated', mirrorToLocalStorage);
+
+restoreFromLocalStorage();
