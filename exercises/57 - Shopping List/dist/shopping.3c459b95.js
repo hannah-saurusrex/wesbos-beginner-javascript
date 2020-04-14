@@ -140,6 +140,8 @@ function handleSubmit(e) {
   //   e.currentTarget.item.value = '';
 
   e.currentTarget.reset(); // fire off a custom event to tell anyone that cares that the items have been updated
+
+  list.dispatchEvent(new CustomEvent('itemsUpdated'));
 }
 
 function displayItems() {
@@ -152,6 +154,7 @@ function displayItems() {
 }
 
 shoppingForm.addEventListener('submit', handleSubmit);
+list.addEventListener('itemsUpdated', displayItems); // listen for itemsUpdated, and then run displayItems 🎉
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

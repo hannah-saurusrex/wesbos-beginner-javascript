@@ -5,7 +5,6 @@ const list = document.querySelector('.list');
 const items = [];
 
 // listen to submit event on form to add item added
-
 function handleSubmit(e) {
   e.preventDefault();
   const name = e.currentTarget.item.value; // grab the value the user typed
@@ -24,6 +23,7 @@ function handleSubmit(e) {
   //   e.currentTarget.item.value = '';
   e.currentTarget.reset();
   // fire off a custom event to tell anyone that cares that the items have been updated
+  list.dispatchEvent(new CustomEvent('itemsUpdated'));
 }
 
 function displayItems() {
@@ -42,3 +42,4 @@ function displayItems() {
 }
 
 shoppingForm.addEventListener('submit', handleSubmit);
+list.addEventListener('itemsUpdated', displayItems); // listen for itemsUpdated, and then run displayItems 🎉
