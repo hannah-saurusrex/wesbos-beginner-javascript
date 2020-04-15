@@ -157,7 +157,7 @@ function handleSubmit(e) {
 
 function displayItems() {
   var html = items.map(function (item) {
-    return "<li class=\"shopping-item\">\n      <input type=\"checkbox\">\n      <span class=\"itemName\">".concat(item.name, "</span>\n      <button aria-label=\"Remove ").concat(item.name, "\">&times;</button>\n    </li>");
+    return "<li class=\"shopping-item\">\n      <input \n        value=\"".concat(item.id, "\" \n        type=\"checkbox\"\n        ").concat(item.complete ? 'checked' : '', "\n        >\n      <span class=\"itemName\">").concat(item.name, "</span>\n      <button \n        aria-label=\"Remove ").concat(item.name, "\"\n        value=\"").concat(item.id, "\"\n        >&times;</button>\n    </li>");
   }).join('');
   list.innerHTML = html;
 } // save items into local storage
@@ -175,17 +175,50 @@ function restoreFromLocalStorage() {
   var lsItems = JSON.parse(localStorage.getItem('items'));
 
   if (lsItems.length) {
+    var _items;
+
     // lsItems.length checks to see if there are any items at all..if so...
-    items.push.apply(items, _toConsumableArray(lsItems)); // if any exist, spread them into our items array.
+    (_items = items).push.apply(_items, _toConsumableArray(lsItems)); // if any exist, spread them into our items array.
+
 
     list.dispatchEvent(new CustomEvent('itemsUpdated'));
   }
 }
 
+function deleteItem(id) {
+  console.log('deleting this item', id); // update our items array without this one
+
+  items = items.filter(function (item) {
+    return item.id !== id;
+  });
+  list.dispatchEvent(new CustomEvent('itemsUpdated'));
+}
+
+function markAsComplete(id) {
+  console.log('marking as complete', id);
+  var itemRef = items.find(function (item) {
+    return item.id === id;
+  });
+  itemRef.complete = !itemRef.complete;
+  list.dispatchEvent(new CustomEvent('itemsUpdated'));
+}
+
 shoppingForm.addEventListener('submit', handleSubmit);
 list.addEventListener('itemsUpdated', displayItems); // listen for itemsUpdated, and then run displayItems 🎉
 
-list.addEventListener('itemsUpdated', mirrorToLocalStorage);
+list.addEventListener('itemsUpdated', mirrorToLocalStorage); // event delegation: we listen for the click on the list <ul> but then delegate the click over to the button if that is what was clicked
+
+list.addEventListener('click', function (e) {
+  var id = parseInt(e.target.value);
+
+  if (e.target.matches('button')) {
+    deleteItem(id);
+  }
+
+  if (e.target.matches('input[type="checkbox"]')) {
+    markAsComplete(id);
+  }
+});
 restoreFromLocalStorage();
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
