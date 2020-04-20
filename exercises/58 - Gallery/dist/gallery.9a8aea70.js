@@ -118,7 +118,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"gallery.js":[function(require,module,exports) {
-function Gallery() {}
+function Gallery(gallery) {
+  if (!gallery) {
+    throw new Error('no gallery found, oops 😬');
+  } // select the elements we need
+
+
+  var images = Array.from(gallery.querySelectorAll('img'));
+  console.log(images);
+} // use the above code on the page, for two seperate galleries
+
+
+var gallery1 = Gallery(document.querySelector('.gallery1'));
+var gallery2 = Gallery(document.querySelector('.gallery2'));
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
