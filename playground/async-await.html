@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>Async Await</title>
+		<link rel="stylesheet" href="../base.css" />
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Async Await</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+	<body>
+		<script>
+			function wait(ms = 0) {
+				return new Promise((resolve) => {
+					setTimeout(resolve, ms);
+				});
+			}
 
-<body>
-  <script>
-    function wait(ms = 0) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-      })
-    }
+			function makePizza(toppings = []) {
+				return new Promise(function(resolve, reject) {
+					// reject if toppings includes pineapple
+					if (toppings.includes("pineapple")) {
+						reject("seriously?! this is a no pineapple household");
+					}
+					const amountOfTimeToBake = 500 + toppings.length * 200;
+					// wait 1 second for the pizza to cook
+					setTimeout(function() {
+						// when you are ready, you can resolve this promise;
+						resolve(
+							`Here is your 🍕 with the toppings: ${toppings.join(", ")}`
+						);
+					}, amountOfTimeToBake);
+					// if something goes wrong, we can reject this promise.
+				});
+			}
 
-    function makePizza(toppings = []) {
-      return new Promise(function (resolve, reject) {
-        // reject if people try with pineapple
-        if (toppings.includes('pineapple')) {
-          reject('Seriously? Get out 🍍');
-        }
-        const amountOfTimeToBake = 500 + (toppings.length * 200);
-        // wait 1 second for the pizza to cook:
-        setTimeout(function () {
-          // when you are ready, you can resolve this promise
-          resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
-        }, amountOfTimeToBake);
-        // if something went wrong, we can reject this promise;
-      });
-    }
+			// async says 'heads up, there's an awaiting inside me
+			async function go() {
+				console.log("starting");
+				await wait(2000); // await says 'hold your horses, do this thing before moving on'
+				console.log("running");
+			}
 
-    async function go() {
-      console.log('Starting');
-      await wait(2000);
-      console.log('running');
-      await wait(200);
-      console.log('ending');
-    }
+			// go();
 
-    // go();
+			async function makeDinner() {
+				const pizzaPromise1 = makePizza(["pepperoni", "green peppers"]);
+				const pizzaPromise2 = makePizza(["mushrooms", "sausage"]);
+				// const pizzas = await Promise.all([pizzaPromise1, pizzaPromise2]);
+				const [pep, mush] = await Promise.all([pizzaPromise1, pizzaPromise2]);
+				// using await here means you're waiting for all the pizzas to be done cooking,
+				// and awaiting the big momma Promise to then return all the data.
+				console.log(pep, mush);
+			}
+			makeDinner();
 
-    async function makeDinner() {
-      const pizzaPromise1 = makePizza(['pepperoni']);
-      const pizzaPromise2 = makePizza(['mushrooms']);
-      const [pep, mush] = await Promise.all([pizzaPromise1, pizzaPromise2]);
-      console.log(pep, mush);
-    }
+			// can use async will all types of functions
+			// function declaration
+			// async function fd() {}
+			// // arrow function
+			// const arrowFn = async () => {};
+			// // callback function
+			// window.addEventListener("click", async function() {});
 
-    makeDinner();
-
-    // // Function declaration
-    // async function fd() { }
-
-    // // arrow function
-    // const arrowFn = async () => { }
-
-    // // call back
-    // window.addEventListener('click', async function () {
-
-    // })
-
-    // //
-    // const person = {
-    //   // method
-    //   sayHi: async function () {
-
-    //   },
-    //   // method shorthand
-    //   async sayHello() {
-
-    //   },
-    //   // function property
-    //   sayHey: async () => {
-
-    //   }
-    // }
-  </script>
-</body>
-
+			// const person = {
+			//   // method
+			// 	async sayHi() {}, // also written as sayHi: async function() {}
+			//   // method shorthand
+			//   async sayHello() {},
+			//   // function property
+			//   sayHey: async () => {}
+			// };
+		</script>
+	</body>
 </html>
