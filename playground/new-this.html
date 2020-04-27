@@ -20,13 +20,34 @@
 			const HannahM = new Object({ name: "hannah" });
 			const span = document.createElement("span");
 
-			function Pizza() {
+			function Pizza(toppings = [], customer) {
 				console.log("making a pizza");
+				// save the toppings that were passed in, to this instance of pizza
+				this.toppings = toppings;
+				this.customer = customer;
+				this.id = Math.floor(Math.random() * 16777215).toString(16);
 			}
-			const pepperoniPizza = new Pizza();
-			console.log(pepperoniPizza);
-			console.log(pepperoniPizza.constructor);
-			console.log(pepperoniPizza instanceof Pizza);
+			const pepperoniPizza = new Pizza(["pepperoni"], "hannah mcmahon");
+			const canadianPizza = new Pizza(
+				["mushrooms", "onions", "peppers"],
+				"sylus reinhart"
+			);
+
+			const button1 = document.querySelector(".one");
+			const button2 = document.querySelector(".two");
+
+			// function tellMeAboutTheButton() {
+			// 	console.log("outside", this);
+			// 	// const that = this; don't need to do this anymore, and can use arrow function instead
+			// 	setTimeout(() => {
+			// 		console.log("inside", this);
+			// 		this.textContent = "You clicked me";
+			// 	}, 1000);
+			// }
+			// // 'this' keyword is function scoped, meaning it is bound to the function declaration. With arrow functions, it will look the the next available (upper) function and bind to that.
+
+			// button1.addEventListener("click", tellMeAboutTheButton);
+			// button2.addEventListener("click", tellMeAboutTheButton);
 		</script>
 	</body>
 </html>
