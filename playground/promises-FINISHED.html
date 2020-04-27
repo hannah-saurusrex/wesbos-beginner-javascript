@@ -12,6 +12,10 @@
 			// promises are made immediately, but they do not resolve until they are ready. (until the data has been retrived, unti the timer has finished, etc.)
 			function makePizza(toppings = []) {
 				return new Promise(function(resolve, reject) {
+					// reject if toppings includes pineapple
+					if (toppings.includes("pineapple")) {
+						reject("seriously?! this is a no pineapple household");
+					}
 					const amountOfTimeToBake = 500 + toppings.length * 200;
 					// wait 1 second for the pizza to cook
 					setTimeout(function() {
@@ -24,56 +28,78 @@
 				});
 			}
 
-			// makePizza(["pepperoni"])
-			// 	.then(function(pizza) {
-			// 		console.log(pizza);
-			// 		return makePizza(["ham", "cheese", "olives"]);
-			// 	})
-			// 	.then(function(pizza) {
-			// 		console.log(pizza);
-			// 		return makePizza(["pineapple", "ham", "mozz"]);
-			// 	})
-			// 	.then(function(pizza) {
-			// 		console.log(pizza);
-			// 		return makePizza([
-			// 			"sausage",
-			// 			"green peppers",
-			// 			"onion",
-			// 			"sausage",
-			// 			"green peppers",
-			// 			"onion",
-			// 		]);
-			// 	})
-			// 	.then(function(pizza) {
-			// 		console.log(pizza);
-			// 	});
+			makePizza(["pepperoni"])
+				.then(function(pizza) {
+					console.log(pizza);
+					return makePizza(["ham", "cheese", "olives"]);
+				})
+				.then(function(pizza) {
+					console.log(pizza);
+					return makePizza(["pineapple", "ham", "mozz"]);
+				})
+				.then(function(pizza) {
+					console.log(pizza);
+					return makePizza([
+						"sausage",
+						"green peppers",
+						"onion",
+						"sausage",
+						"green peppers",
+						"onion",
+					]);
+				})
+				.then(function(pizza) {
+					console.log(pizza);
+				})
+				.catch(handleError);
+			// when running, when it finds the error, it will stop running, and 'bail out'. It will not continue making pizzas.
 
 			// run them all at the same time and tell me when they're done.
-			const pizzaPromise1 = makePizza(["ham", "cheese", "onion"]);
-			const pizzaPromise2 = makePizza(["onion", "olives", "feta"]);
-			const pizzaPromise3 = makePizza(["sausage", "green pep", "shallot"]);
+			// const pizzaPromise1 = makePizza(["ham", "cheese", "onion"]);
+			// const pizzaPromise2 = makePizza(["onion", "olives", "feta"]);
+			// const pizzaPromise3 = makePizza(["sausage", "green pep", "shallot"]);
 
-			const dinnerPromise = Promise.all([
-				// promise.all waits for all of them to finish before rendering
-				pizzaPromise1,
-				pizzaPromise2,
-				pizzaPromise3,
-			]);
+			// const dinnerPromise = Promise.all([
+			// 	// promise.all waits for all of them to finish before rendering
+			// 	pizzaPromise1,
+			// 	pizzaPromise2,
+			// 	pizzaPromise3,
+			// ]);
 
-			dinnerPromise.then(function(pizzas) {
-				console.log(pizzas);
-			});
+			// dinnerPromise.then(function(pizzas) {
+			// 	console.log(pizzas);
+			// });
 
-			const firstPizzaPromise = Promise.race([
-				// promise.race gives you the thing that was availble, or finished first!
-				pizzaPromise1,
-				pizzaPromise2,
-				pizzaPromise3,
-			]);
+			// const firstPizzaPromise = Promise.race([
+			// 	// promise.race gives you the thing that was availble, or finished first!
+			// 	pizzaPromise1,
+			// 	pizzaPromise2,
+			// 	pizzaPromise3,
+			// ]);
 
-			firstPizzaPromise.then((pizza) => {
-				console.log("you must be hungry! heres the first available pizza");
-				console.log(pizza);
+			// firstPizzaPromise.then((pizza) => {
+			// 	console.log("you must be hungry! heres the first available pizza");
+			// 	console.log(pizza);
+			// });
+			function handleError(err) {
+				console.log("oops, gross! 🚫🍍");
+				console.log(err);
+			}
+
+			makePizza(["cheese", "ham", "pineapple"])
+				.then((pizza) => {
+					console.log(pizza);
+				})
+				// use the .catch() to give an error if the promise is rejected.
+				.catch(handleError);
+
+			const p1 = makePizza(["pepperoni"]);
+			const p2 = makePizza(["pineapple"]);
+
+			const dinnerPromise2 = Promise.allSettled([p1, p2]);
+
+			dinnerPromise2.then((results) => {
+				console.log(results);
 			});
 		</script>
 	</body>
