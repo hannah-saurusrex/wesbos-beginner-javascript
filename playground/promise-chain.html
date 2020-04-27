@@ -48,6 +48,26 @@
 
 			const go = document.querySelector(".go");
 
+			// PRIMO ASYNC/AWAIT EXAMPLE. SO CLEAN 🧼; SO HAPPY💚 🙌🏻
+			async function animate2(e) {
+				const el = e.currentTarget;
+				// change text to 'Go' when clicked
+				el.textContent = "Go!";
+				// make it a circle after 2 seconds
+				await wait(200);
+				el.classList.add("circle");
+				await wait(500);
+				el.classList.add("red");
+				await wait(500);
+				el.classList.remove("circle");
+				await wait(500);
+				el.classList.remove("red");
+				el.classList.add("purple");
+				await wait(500);
+				el.classList.add("fadeOut");
+			}
+
+			// PROMISE CHAIN USING .THEN() ARROW FUNCTIONS
 			function animate(e) {
 				const el = e.currentTarget;
 				// change text to 'Go' when clicked
@@ -76,7 +96,9 @@
 					});
 			}
 
-			go.addEventListener("click", animate);
+			go.addEventListener("click", animate2);
+
+			// OG EXAMPLE OF CALLBACK HELL
 			// 1. change the text to 'Go' when clicked
 			go.addEventListener("clickXXXX", function(e) {
 				const el = e.currentTarget;
