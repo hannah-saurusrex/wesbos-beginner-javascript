@@ -1,12 +1,14 @@
 const baseEndpoint = 'http://www.recipepuppy.com/api';
-const proxy = `https://cors-anywhere.herokuapp.com/`;
+const proxy = 'https://cors-anywhere.herokuapp.com/';
 const form = document.querySelector('form.search');
 const recipesGrid = document.querySelector('.recipes');
+let allRecipes = [];
 
 async function fetchRecipes(query) {
   const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
   const data = await res.json();
-  return data;
+  allRecipes = data.results;
+  return allRecipes;
 }
 
 async function handleSubmit(event) {
@@ -21,20 +23,19 @@ async function fetchAndDisplay(query) {
   form.submit.disabled = true;
   // submit the search
   const recipes = await fetchRecipes(query);
-  console.log(recipes);
   form.submit.disabled = false;
   displayRecipes(recipes.results);
 }
 
 function displayRecipes(recipes) {
-  console.log('Creating HTML');
+  console.log('creating HTML');
   const html = recipes.map(
     recipe => `<div class="recipe">
       <h2>${recipe.title}</h2>
       <p>${recipe.ingredients}</p>
       ${recipe.thumbnail &&
-        `<img src="${recipe.thumbnail}" alt="${recipe.title}"/>`}
-      <a href="${recipe.href}">View Recipe →</a>
+        `<img src="${recipe.thumbnail}" alt="${recipe.title}" />`}
+        <a href="${recipe.href}">View Recipe</a>
     </div>`
   );
   recipesGrid.innerHTML = html.join('');
