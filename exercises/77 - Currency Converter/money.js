@@ -1,3 +1,11 @@
+const fromSelect = document.querySelector('[name="from_currency"]');
+const fromInput = document.querySelector('[name="from_amount"');
+const toSelect = document.querySelector('[name="to_currency"]');
+const toEl = document.querySelector('.to_amount');
+const form = document.querySelector('.app form');
+const endpoint = 'https://api.exchangeratesapi.io/latest';
+const ratesByBase = {}; // will store all of the rates
+
 const currencies = {
   USD: 'United States Dollar',
   AUD: 'Australian Dollar',
@@ -32,3 +40,53 @@ const currencies = {
   ZAR: 'South African Rand',
   EUR: 'Euro',
 };
+
+function generateOptions(options) {
+  return Object.entries(options)
+    .map(
+      ([currencyCode, currencyName]) =>
+        `<option value="${currencyCode}">${currencyCode} - ${currencyName}</option>`
+    )
+    .join('');
+}
+
+// this function pulls in the current currency rates, with the base currency set to the USD $
+async function fetchRates(base = 'USD') {
+  const res = await fetch(`${endpoint}?base=${base}`);
+  const rates = await res.json();
+  return rates;
+}
+
+async function convert(amount, from, to) {
+  // first check if we even have the rates to convert from that currency
+  if (!ratesByBase[from]) {
+    console.log(
+      `Oh no, we don't have ${from} to convert ${to}, so let's go get it`
+    );
+    const rates = await fetchRates(from);
+    console.log(rates);
+    // store for next time
+    ratesByBase[from] = rates;
+  }
+  // convert the amount that they passed in
+  const rate = ratesByBase[from].rates[to];
+  const convertedAmount = rate * amount;
+  console.log(`${amount} ${from} is ${convertedAmount} in ${to}`);
+  return convertedAmount;
+}
+
+async function handleInput(e) {
+  const rawAmount = await convert(
+    fromInput.value,
+    fromSelect.value,
+    toSelect.value
+  );
+  toEl.textContent = rawAmount;
+}
+
+const optionsHTML = generateOptions(currencies);
+// populate options elements
+fromSelect.innerHTML = optionsHTML;
+toSelect.innerHTML = optionsHTML;
+
+form.addEventListener('input', handleInput);
