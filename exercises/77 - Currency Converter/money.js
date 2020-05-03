@@ -82,7 +82,7 @@ function formatCurrency(amount, currency) {
   }).format(amount);
 }
 
-async function handleInput(e) {
+async function handleInput() {
   const rawAmount = await convert(
     fromInput.value,
     fromSelect.value,

@@ -1,7 +1,11 @@
 import first, { returnHi as sayHi, last, middle } from './utils.js';
+// import wes from './wes.js';
 import * as everything from './wes.js';
-import { handleButtonClick } from './handlers.js';
 
-const button = document.querySelector('button');
+const name = 'Colin';
 
-button.addEventListener('click', handleButtonClick);
+console.log(everything);
+
+console.log(sayHi(name));
+console.log(last, middle);
+console.log(first);

@@ -1,274 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title> </title>
+		<link rel="stylesheet" href="../../base.css" />
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>
+	<body>
+		<script>
+			const toppings = [
+				"Mushrooms ",
+				"Tomatoes",
+				"Eggs",
+				"Chili",
+				"Lettuce",
+				"Avocado",
+				"Chiles",
+				"Bacon",
+				"Pickles",
+				"Onions",
+				"Cheese",
+			];
 
-  </title>
-  <link rel="stylesheet" href="../../base.css">
-</head>
+			const students = [
+				{
+					id: "11ce",
+					first_name: "Dall",
+					last_name: "Puckring",
+				},
+				{
+					id: "2958",
+					first_name: "Margarete",
+					last_name: "Brandi",
+				},
+				{
+					id: "565a",
+					first_name: "Bendicty",
+					last_name: "Woodage",
+				},
+				{
+					id: "3a16",
+					first_name: "Micki",
+					last_name: "Mattes",
+				},
+				{
+					id: "f396",
+					first_name: "Flory",
+					last_name: "Gladeche",
+				},
+				{
+					id: "de5f",
+					first_name: "Jamill",
+					last_name: "Emilien",
+				},
+				{
+					id: "54cb",
+					first_name: "Brett",
+					last_name: "Aizikowitz",
+				},
+				{
+					id: "9135",
+					first_name: "Lorry",
+					last_name: "Smallman",
+				},
+				{
+					id: "978f",
+					first_name: "Gilly",
+					last_name: "Flott",
+				},
+			];
 
-<body>
-  <script>
-    const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
+			const people = [
+				{
+					birthday: "April 22, 1993",
+					names: {
+						first: "Keith",
+						last: "Buckley",
+					},
+				},
+				{
+					birthday: "January 3, 1975",
+					names: {
+						first: "Larry",
+						last: "Heep",
+					},
+				},
+				{
+					birthday: "February 12, 1944",
+					names: {
+						first: "Linda",
+						last: "Bermeer",
+					},
+				},
+			];
 
-    const students = [
-      {
-        id: '11ce',
-        first_name: 'Dall',
-        last_name: 'Puckring',
-      },
-      {
-        id: '2958',
-        first_name: 'Margarete',
-        last_name: 'Brandi',
-      },
-      {
-        id: '565a',
-        first_name: 'Bendicty',
-        last_name: 'Woodage',
-      },
-      {
-        id: '3a16',
-        first_name: 'Micki',
-        last_name: 'Mattes',
-      },
-      {
-        id: 'f396',
-        first_name: 'Flory',
-        last_name: 'Gladeche',
-      },
-      {
-        id: 'de5f',
-        first_name: 'Jamill',
-        last_name: 'Emilien',
-      },
-      {
-        id: '54cb',
-        first_name: 'Brett',
-        last_name: 'Aizikowitz',
-      },
-      {
-        id: '9135',
-        first_name: 'Lorry',
-        last_name: 'Smallman',
-      },
-      {
-        id: '978f',
-        first_name: 'Gilly',
-        last_name: 'Flott',
-      },
-    ];
+			const buns = ["egg", "wonder", "brioche"];
 
-    const people = [
-      {
-        birthday: 'April 22, 1993',
-        names: {
-          first: 'Keith',
-          last: 'Buckley'
-        }
-      },
-      {
-        birthday: 'January 3, 1975',
-        names: {
-          first: 'Larry',
-          last: 'Heep'
-        }
-      },
-      {
-        birthday: 'February 12, 1944',
-        names: {
-          first: 'Linda',
-          last: 'Bermeer'
-        }
-      }
-    ];
+			const meats = {
+				beyond: 10,
+				beef: 5,
+				pork: 7,
+			};
 
+			const prices = {
+				hotDog: 453,
+				burger: 765,
+				sausage: 634,
+				corn: 234,
+			};
 
-    const buns = ['egg', 'wonder', 'brioche'];
+			const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
 
-    const meats = {
-      beyond: 10,
-      beef: 5,
-      pork: 7
-    };
+			const feedback = [
+				{ comment: "Love the burgs", rating: 4 },
+				{ comment: "Horrible Service", rating: 2 },
+				{ comment: "Smoothies are great, liked the burger too", rating: 5 },
+				{ comment: "Ambiance needs work", rating: 3 },
+				{ comment: "I DONT LIKE BURGERS", rating: 1 },
+			];
 
-    const prices = {
-      hotDog: 453,
-      burger: 765,
-      sausage: 634,
-      corn: 234,
-    };
+			const faces = ["😃", "🤠", "🤡", "🤑", "😵", "🌞", "🐶", "😺"];
 
-    const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+			const inventory = [
+				{ type: "shirt", price: 4000 },
+				{ type: "pants", price: 4532 },
+				{ type: "socks", price: 234 },
+				{ type: "shirt", price: 2343 },
+				{ type: "pants", price: 2343 },
+				{ type: "socks", price: 542 },
+				{ type: "pants", price: 123 },
+			];
 
-    const feedback = [
-      { comment: 'Love the burgs', rating: 4 },
-      { comment: 'Horrible Service', rating: 2 },
-      { comment: 'Smoothies are great, liked the burger too', rating: 5 },
-      { comment: 'Ambiance needs work', rating: 3 },
-      { comment: 'I DONT LIKE BURGERS', rating: 1 },
-    ];
+			/*
+			   Looping Methods
+			 */
+			function logTopping(topping, index, originalArray) {
+				const nextTopping = originalArray[index + 1];
+				const prevTopping = originalArray[index - 1];
+				// log the topping
+				console.log(topping);
+				// log the prev topping if exists
+				prevTopping ? console.log(prevTopping) : null;
+				// log next topping if exists
+				nextTopping ? console.log(nextTopping) : null; // ternary operator style baby
+				// if(nextTopping) {
+				//   console.log(nextTopping);
+				// }
+				// if last item in array, say goodbye
+				index === originalArray.length - 1
+					? console.log("GOODBYE 👋🏻")
+					: console.log("hang in there, we're generating the next topping...");
 
-    const faces = ['😃', '🤠', '🤡', '🤑', '😵', '🌞', '🐶', '😺'];
+				// index === originalArray.length && console.log('Goodbye!');
+				console.log("---------🍕---------");
+			}
+			toppings.forEach(logTopping);
 
-    const inventory = [
-      { type: 'shirt', price: 4000 },
-      { type: 'pants', price: 4532 },
-      { type: 'socks', price: 234 },
-      { type: 'shirt', price: 2343 },
-      { type: 'pants', price: 2343 },
-      { type: 'socks', price: 542 },
-      { type: 'pants', price: 123 },
-    ];
+			// toppings.forEach(topping => {
+			//   console.log(topping);
+			// });
 
+			// forEach - handy for when you want to loop over some data, and do something with EACH piece of data.
+			// such as, log a value, assign an event listener for a click, etc.
 
-    /*
-      Looping Methods
-    */
-    function logTopping(topping, index, originalArray) {
-      const nextTopping = originalArray[index + 1];
-      const prevTopping = originalArray[index - 1];
-      // log the topping
-      console.log(topping);
-      // log the prev topping if exists
-      prevTopping ? console.log(prevTopping) : null;
-      // log next topping if exists
-      nextTopping ? console.log(nextTopping) : null;  // ternary operator style baby
-      // if(nextTopping) {
-      //   console.log(nextTopping);
-      // }
-      // if last item in array, say goodbye
-      index === originalArray.length - 1 
-        ? console.log('GOODBYE 👋🏻') 
-        : console.log("hang in there, we're generating the next topping...");
+			// the following will take in data, do something with that data, and then return the modified/massaged/transformed data in some way.
+			// Map, Filter, Reduce
+			// Map -- map takes in data, performes an operation, and then spits out
+			// the transformed data on the other side. Map will output the same length of
+			// array that it starts with. Map is not mutable, meaning when it returns the mutated array, it does not affect the original array. the
+			// original array stays intact 😃;
+			console.clear();
 
-        // index === originalArray.length && console.log('Goodbye!');
-      console.log('---------🍕---------');
-    }
-    toppings.forEach(logTopping);
+			function addArms(face) {
+				return `👋🏻 ${face} 👋🏻`;
+			}
 
-    // toppings.forEach(topping => {
-    //   console.log(topping);
-    // });
+			const toys = faces.map(addArms);
 
-    // forEach - handy for when you want to loop over some data, and do something with EACH piece of data.
-    // such as, log a value, assign an event listener for a click, etc.
+			console.log(toys);
 
-    // the following will take in data, do something with that data, and then return the modified/massaged/transformed data in some way. 
-    // Map, Filter, Reduce
-    // Map -- map takes in data, performes an operation, and then spits out 
-    // the transformed data on the other side. Map will output the same length of 
-    // array that it starts with. Map is not mutable, meaning when it returns the mutated array, it does not affect the original array. the 
-    // original array stays intact 😃;
-    console.clear();
+			function bosify(name) {
+				return `${name} Bos`;
+			}
 
-    function addArms(face) {
-      return `👋 ${face} 👋`;
-    }
+			function capitalize(word) {
+				return `${word[0].toUpperCase()}${word.slice(1)}`;
+			}
 
-    const toys = faces.map(addArms);
-    console.table(toys);
+			const fullNames = ["wes", "kait", "poppy"].map(capitalize).map(bosify);
+			console.log(fullNames);
 
-    function reinhartify(name) {
-      return `${name} Reinhart`;
-    }
+			const orderTotalsWithTax = orderTotals.map((total) => total * 1.13);
+			console.log(orderTotalsWithTax);
 
-    function capitalize(word) {
-      return `${word[0].toUpperCase()}${word.slice(1)}`;
-    }
+			// // filter will return an array of objects that match the criteria you're searching for.
+			// // more often than not, you'll have an array of objects that are returned from an API....let's practice
+			const cleanPeople = people.map(function(person) {
+				// timestamp
+				const birthday = new Date(person.birthday).getTime();
+				// now timestamp
+				const now = Date.now();
+				const age = Math.floor((now - birthday) / 31536000000);
+				// get their birthday
+				// figure out how old they are
+				// return their full name & birthday in an object
+				return {
+					age,
+					name: `${person.names.first} ${person.names.last}`,
+				};
+			});
 
-    const fullNames = ['sylus Murphy', 'hannah Rose', 'colin Burke']
-      .map(capitalize)
-      .map(reinhartify);
-    console.log(fullNames);
+			console.table(cleanPeople);
 
-    console.clear();
+			// // find will return one thing you're searching for, and only the first item that matches.
+			// // using .find() will return an object with one item. Whereas .filter() returns an array of objects.
+			// // use .find() to find the student with the id of 565a.
 
-    const orderTotalsWithTax = orderTotals.map(total => total * 1.13);
-    console.table(orderTotalsWithTax);
+			// function findById(id) {
+			// 	return function isStudent(student) {
+			// 		return student.id === id;
+			// 	};
+			// }
 
-    console.clear();
+			// // this is a flexible option where you enter keys and values to search for the thing you want.
+			// // this example is quite advanced, but worth noting for future.
+			// function findByProp(prop, propWeAreLookingFor) {
+			// 	return function isStudent(student) {
+			// 		return student[prop] === propWeAreLookingFor;
+			// 	};
+			// }
 
-    // filter will return an array of objects that match the criteria you're searching for.
-    // more often than not, you'll have an array of objects that are returned from an API....let's practice
-    const cleanPeople = people.map(function(person) {
-      // get their birthday
-      // timestamp
-      const birthday = new Date(person.birthday).getTime();
-      // figure out how hold they are
-      // now timestamp
-      const now = Date.now();
-      const age = Math.floor((now - birthday) / 31536000000);
-      console.log(age);
-      // return their full name & bday in an object
-      return {
-        age,
-        name: `${person.names.first} ${person.names.last}`,
-      }
-    });
-    console.table(cleanPeople);;
-    const over40 = cleanPeople.filter((person) => person.age > 40);
-    console.table(over40);
+			// const student = students.find(findByProp("id", "565a"));
+			// const student2 = students.find(findByProp("first_name", "Gilly"));
+			// // const student = students.find(stud => stud.id === '565a');
+			// console.log(student);
+			// console.log(student2);
 
-    console.clear();
+			// console.clear();
 
-    // find will return one thing you're searching for, and only the first item that matches.
-    // using .find() will return an object with one item. Whereas .filter() returns an array of objects.
-    // use .find() to find the student with the id of 565a.
+			// // Reduce! Takes in an array of data, and return to you a result, or a single value based on the criteria you need.
+			// function tallyNumbers(tally, currentTotal) {
+			// 	console.log(`The current tally is ${tally}`);
+			// 	console.log(`The current total is ${currentTotal}`);
+			// 	console.log("---------〰️--------");
+			// 	// return the current tally PLUS the amount of this order.
+			// 	return tally + currentTotal;
+			// }
 
-    function findById(id) {
-      return function isStudent(student) {
-      return student.id === id;
-      }
-    }
-    
-    // this is a flexible option where you enter keys and values to search for the thing you want.
-    // this example is quite advanced, but worth noting for future.
-    function findByProp(prop, propWeAreLookingFor) {
-      return function isStudent(student) {
-        return student[prop] === propWeAreLookingFor;
-      }
-    }
+			// const allOrders = orderTotals.reduce(tallyNumbers, 0);
+			// console.log(allOrders);
+			// console.clear();
 
-    const student = students.find(findByProp('id', '565a'));
-    const student2 = students.find(findByProp('first_name', 'Gilly'));
-    // const student = students.find(stud => stud.id === '565a');
-    console.log(student);
-    console.log(student2);
+			// // count instances of shirts, pants, socks
+			// function inventoryReducer(totals, item) {
+			// 	console.log(`Looping over ${item.type}`);
+			// 	// increment the type by 1.
+			// 	totals[item.type] = totals[item.type] + 1 || 1;
+			// 	// return the totals, so the next loop can use it.
+			// 	return totals;
+			// }
+			// const inventoryCounts = inventory.reduce(inventoryReducer, {});
+			// console.log(inventoryCounts);
 
-    console.clear();
-
-    // Reduce! Takes in an array of data, and return to you a result, or a single value based on the criteria you need.
-    function tallyNumbers(tally, currentTotal) {
-      console.log(`The current tally is ${tally}`);
-      console.log(`The current total is ${currentTotal}`);
-      console.log('---------〰️--------');
-      // return the current tally PLUS the amount of this order.
-      return tally + currentTotal;
-    }
-    
-    const allOrders = orderTotals.reduce(tallyNumbers, 0);
-    console.log(allOrders);
-    console.clear();
-
-    // count instances of shirts, pants, socks
-    function inventoryReducer(totals, item) {
-      console.log(`Looping over ${item.type}`);
-      // increment the type by 1.
-      totals[item.type] = totals[item.type] + 1 || 1;
-      // return the totals, so the next loop can use it.
-      return totals;
-    }
-    const inventoryCounts = inventory.reduce(inventoryReducer, {});
-    console.log(inventoryCounts);
-
-    const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
-    console.log(totalInventoryPrice);
-
-  </script>
-</body>
-
+			// const totalInventoryPrice = inventory.reduce(
+			// 	(acc, item) => acc + item.price,
+			// 	0
+			// );
+			// console.log(totalInventoryPrice);
+		</script>
+	</body>
 </html>
