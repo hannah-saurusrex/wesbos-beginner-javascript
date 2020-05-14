@@ -1,4 +1,4 @@
-// Named Export (we can have lots of these)
+// named export (we can have lots of these)
 export async function fetchJoke(loader) {
   // turn loader on
   loader.classList.remove('hidden');
@@ -8,7 +8,7 @@ export async function fetchJoke(loader) {
     },
   });
   const data = await response.json();
-  // turn the loader off
+  // turn loader off
   loader.classList.add('hidden');
   return data;
 }
