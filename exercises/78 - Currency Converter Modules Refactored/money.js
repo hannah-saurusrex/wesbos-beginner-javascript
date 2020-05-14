@@ -1,13 +1,5 @@
-import { generateOptions } from './util.js';
-import currencies from './currencies.js';
-import { handleInput } from './handlers.js';
-import { fromSelect, toSelect } from './elements.js';
+import { init } from './init.js';
 
-const form = document.querySelector('.app form');
-
-const optionsHTML = generateOptions(currencies);
-// populate the options elements
-fromSelect.innerHTML = optionsHTML;
-toSelect.innerHTML = optionsHTML;
-
-form.addEventListener('input', handleInput);
+// start the app 'mouseenter'
+const app = document.querySelector('.app');
+app.addEventListener('mouseenter', init, { once: true });
