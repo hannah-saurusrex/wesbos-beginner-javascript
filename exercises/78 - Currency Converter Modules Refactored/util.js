@@ -13,11 +13,3 @@ export function formatCurrency(amount, currency) {
     currency,
   }).format(amount);
 }
-async function handleInput(e) {
-  const rawAmount = await convert(
-    fromInput.value,
-    fromSelect.value,
-    toSelect.value
-  );
-  toEl.textContent = formatCurrency(rawAmount, toSelect.value);
-}
